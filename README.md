@@ -1,1 +1,3 @@
-# GraphicCW1
+# GraphicCW
+
+Ex1 is done only
