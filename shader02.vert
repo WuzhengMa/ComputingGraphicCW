@@ -32,10 +32,32 @@ void main()
 
   if(shader == 1)
   {
-    ///////////////////////////////////////////////////
-    //TODO add code for exercise 2.1 Gouraud shading here
-    ///////////////////////////////////////////////////
 
+    vec3 light_pos = vec3(gl_LightSource[0].position) - vertex.pos;
+
+    //The dot product between the incident light and the normal vector
+    float dot_product = max(dot(normalize(light_pos), vertex.normal), 0);
+
+    //The distance from the light source to the vertex
+    float distance = length(vertex.pos - light_pos);
+    
+    //Obtain the reflected light vector
+    vec3 light_pos_reflected = reflect(-normalize(light_pos), vertex.normal);
+
+    //Attenuation
+    float atten = 1.0 / (gl_LightSource[0].constantAttenuation
+                           + gl_LightSource[0].linearAttenuation 
+			   * distance
+                           + gl_LightSource[0].quadraticAttenuation 
+			   * distance
+			   * distance);
+
+    //Different components
+    vec4 I_a = ambientColor;
+    vec4 I_d = atten * diffuseColor * dot_product;
+    vec4 I_s = atten * specularColor * pow(max(dot(normalize(light_pos_reflected), normalize(-vertex.pos)), 0), (0.3 * specularExponent));
+    
+    vertex.color = I_a + I_d + I_s;
 
     ///////////////////////////////////////////////////
   }
