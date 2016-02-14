@@ -56,7 +56,7 @@ void produceVertex(float s, float t, vec4 v0, vec4 v01, vec4 v02, vec3 n0, vec3 
 	vec4 new_ver = v0 + s * v01 + t * v02;
 	vec3 new_nor = n0 + s * n01 + t * n02;
 	
-	//frag.vpos = vec3(new_ver);
+	frag.vpos = vec3(new_ver);
 	frag.normal = normalize(new_nor);
 	frag.color = vertices[i].color;
 	
