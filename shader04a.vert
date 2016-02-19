@@ -16,7 +16,7 @@ out vertexData
 	vec3 pos;
 	vec3 normal;
 	vec4 color;
-	//TODO Exercise 4:
+	vec4 TexCoords;
 }vertex;
 
 /////////////
@@ -27,6 +27,7 @@ void main()
 	vertex.normal = normalize(gl_NormalMatrix * gl_Normal);
 	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;  
 	vertex.color = vec4(1.0,0.0,0.0,1.0);
+	vertex.TexCoords = gl_MultiTexCoord0;
 
   //////////////////////////////////////////////////////////
   // TODO Exercise 04a: add correct coordinate value to 
