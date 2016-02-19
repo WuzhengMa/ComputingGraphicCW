@@ -13,7 +13,7 @@ out vec3 color;
 //this is the texture of the framebuffer object
 uniform sampler2D renderedTexture;
 const int N = 12;
-const float d_max = 0.5;
+const float d_max = 1.0;
 const float s[N] = float[](-0.10568,-0.07568,-0.042158,
 			      -0.02458,-0.01987456,-0.0112458,
 			      0.0112458,0.01987456,0.02458,
@@ -27,8 +27,8 @@ void main(){
 
 	int i;
 	for(i=0; i<N; i++){
-		vec2 dir_p = centre - textureUV;
-		vec2 blur_UV = textureUV + normalize(dir_p) * s[i] * d_max;
+		vec2 dir_p = centre - normalize(textureUV);
+		vec2 blur_UV = textureUV + dir_p * s[i] * d_max;
 		outcolor += texture(renderedTexture, blur_UV).xyz;
 	}
 	
