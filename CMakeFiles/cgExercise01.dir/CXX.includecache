@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+/homes/wm813/Desktop/cgcoursework2016/inc/lodepng.cpp
+lodepng.h
+/homes/wm813/Desktop/cgcoursework2016/inc/lodepng.h
+stdio.h
+-
+stdlib.h
+-
+fstream
+-
+Windows.h
+-
+tchar.h
+-
+unistd.h
+-
+GL/glew.h
+/homes/wm813/Desktop/cgcoursework2016/inc/GL/glew.h
+GLUT/glut.h
+-
+GL/glut.h
+-
+
 /homes/wm813/Desktop/cgcoursework2016/inc/lodepng.h
 time.h
 -
