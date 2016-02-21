@@ -1,0 +1,4 @@
+Based on my own texture image, there are several ways to present a more vivid mapping. 
+1. Adjusting the texture colour component before adding to other reflected components, 
+   so that the reflection on the tea pot will not be too bright.
+2. Adding more shadows according to the light source position.
